@@ -810,6 +810,15 @@ public class Workspace extends ViewGroup implements DropTarget, DragSource, Drag
         }
     }
 
+    public void hideWallpaper(boolean hide) {
+        if (hide)
+          mWallpaperManager.sendWallpaperCommand(getWindowToken(),
+            "hide", 0, 0, 0, null);
+        else
+          mWallpaperManager.sendWallpaperCommand(getWindowToken(),
+            "show", 0, 0, 0, null);
+    }
+
     void enableChildrenCache(int fromScreen, int toScreen) {
         if (fromScreen > toScreen) {
             final int temp = fromScreen;
