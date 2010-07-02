@@ -409,6 +409,11 @@ public class LauncherModel extends BroadcastReceiver {
                      startLoader(context, false);
                 }
             }
+            if (Intent.ACTION_LOCALE_CHANGED.equals(action)) {
+                synchronized (this) {
+                    mAllAppsLoaded = false;
+                }
+            }
         }
     }
 
