@@ -203,6 +203,8 @@ public final class Launcher extends Activity
 
     private ImageView mPreviousView;
     private ImageView mNextView;
+    private ImageView hotseatLeft;
+    private ImageView hotseatRight;
 
     // Hotseats (quick-launch icons next to AllApps)
     private static final int NUM_HOTSEATS = 2;
@@ -720,10 +722,10 @@ public final class Launcher extends Activity
         mHandleView.setOnClickListener(this);
         mHandleView.setOnLongClickListener(this);
 
-        ImageView hotseatLeft = (ImageView) findViewById(R.id.hotseat_left);
+        hotseatLeft = (ImageView) findViewById(R.id.hotseat_left);
         hotseatLeft.setContentDescription(mHotseatLabels[0]);
         hotseatLeft.setImageDrawable(mHotseatIcons[0]);
-        ImageView hotseatRight = (ImageView) findViewById(R.id.hotseat_right);
+        hotseatRight = (ImageView) findViewById(R.id.hotseat_right);
         hotseatRight.setContentDescription(mHotseatLabels[1]);
         hotseatRight.setImageDrawable(mHotseatIcons[1]);
 
@@ -1895,6 +1897,11 @@ public final class Launcher extends Activity
         
         // TODO: fade these two too
         mDeleteZone.setVisibility(View.GONE);
+        mHandleView.setVisibility(View.GONE);
+        mPreviousView.setVisibility(View.GONE);
+        mNextView.setVisibility(View.GONE);
+	hotseatLeft.setVisibility(View.GONE);
+	hotseatRight.setVisibility(View.GONE);
     }
 
     /**
@@ -1942,6 +1949,12 @@ public final class Launcher extends Activity
             mAllAppsGrid.zoom(0.0f, animated);
             ((View)mAllAppsGrid).setFocusable(false);
             mWorkspace.getChildAt(mWorkspace.getCurrentScreen()).requestFocus();
+
+            mHandleView.setVisibility(View.VISIBLE);
+            mPreviousView.setVisibility(View.VISIBLE);
+            mNextView.setVisibility(View.VISIBLE);
+	    hotseatLeft.setVisibility(View.VISIBLE);
+	    hotseatRight.setVisibility(View.VISIBLE);
         }
     }
 

@@ -77,6 +77,7 @@ public class AllApps2D
         @Override
         public View focusSearch(int direction) {
             if (direction == FOCUS_UP) return super.focusSearch(direction);
+            if (direction == FOCUS_LEFT) return super.focusSearch(direction);
             return null;
         }
     }
