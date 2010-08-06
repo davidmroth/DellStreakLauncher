@@ -84,6 +84,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.DataInputStream;
 
+import android.os.ServiceManager;
+import android.view.IWindowManager;
+
 import com.android.launcher.R;
 
 /**
@@ -205,6 +208,9 @@ public final class Launcher extends Activity
     private ImageView mNextView;
     private ImageView hotseatLeft;
     private ImageView hotseatRight;
+
+    private IWindowManager wm ;
+    private float savedTransitionAnimationScale ;
 
     // Hotseats (quick-launch icons next to AllApps)
     private static final int NUM_HOTSEATS = 2;
@@ -562,6 +568,15 @@ public final class Launcher extends Activity
     protected void onResume() {
         super.onResume();
 
+        // Disable animation while coming back to Home Screen for better user experience.
+        wm = IWindowManager.Stub.asInterface(ServiceManager.getService("window"));
+        try {
+            savedTransitionAnimationScale = wm.getAnimationScale(1) ;
+            wm.setAnimationScale(1, 0.0f);
+        }catch(Exception e){
+            e.printStackTrace() ;
+        }
+
         mPaused = false;
 
         if (mRestoring) {
@@ -574,6 +589,15 @@ public final class Launcher extends Activity
     @Override
     protected void onPause() {
         super.onPause();
+
+        // Leaving Homescreen. Restore animation option selected by user.
+        wm = IWindowManager.Stub.asInterface(ServiceManager.getService("window"));
+        try {
+            wm.setAnimationScale(1, savedTransitionAnimationScale);
+        }catch(Exception e) {
+            e.printStackTrace() ;
+        }
+
         dismissPreview(mPreviousView);
         dismissPreview(mNextView);
         mDragController.cancelDrag();
