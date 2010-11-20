@@ -17,19 +17,24 @@
 
 <resources>
     <string-array name="wallpapers" translatable="false">
-        <item>wallpaper_lake</item>
-        <item>wallpaper_sunset</item>
-        <item>wallpaper_beach</item>
-        <item>wallpaper_snow_leopard</item>
-        <item>wallpaper_path</item>
-        <item>wallpaper_sunrise</item>
-        <item>wallpaper_mountain</item>
-        <item>wallpaper_road</item>
-        <item>wallpaper_jellyfish</item>
-        <item>wallpaper_zanzibar</item>
-        <item>wallpaper_blue</item>
-        <item>wallpaper_grey</item>
-        <item>wallpaper_green</item>
-        <item>wallpaper_pink</item>
+        <item>wallpaper_clouds</item>
+        <item>wallpaper_goldengate</item>
+        <item>wallpaper_monumentvalley</item>
+        <item>wallpaper_tree</item>
+        <item>wallpaper_canyon</item>
+        <item>wallpaper_cloud</item>
+        <item>wallpaper_desert</item>
+        <item>wallpaper_grass</item>
+        <item>wallpaper_despair</item>
+        <item>wallpaper_electric</item>
+        <item>wallpaper_field</item>
+        <item>wallpaper_pcut</item>
+        <item>wallpaper_galaxy</item>
+        <item>wallpaper_ropelights</item>
+        <item>wallpaper_hazybluedots</item>
+        <item>wallpaper_gray</item>
+        <item>wallpaper_greengray</item>
+        <item>wallpaper_brown</item>
+        <item>wallpaper_lightgrad</item>
     </string-array>
 </resources>

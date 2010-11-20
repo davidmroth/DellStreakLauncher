@@ -23,10 +23,10 @@ LOCAL_STATIC_JAVA_LIBRARIES := android-common
 
 LOCAL_SRC_FILES := $(call all-subdir-java-files)
 
-LOCAL_PACKAGE_NAME := Launcher2
-LOCAL_CERTIFICATE := shared
+LOCAL_PACKAGE_NAME := DellLauncher2
+LOCAL_OVERRIDES_PACKAGES := Launcher2
 
-LOCAL_OVERRIDES_PACKAGES := Home
+LOCAL_CERTIFICATE := shared
 
 LOCAL_PROGUARD_FLAGS := -include $(LOCAL_PATH)/proguard.flags
 
